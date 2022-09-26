@@ -31,7 +31,8 @@ endif
 # Any additional components to apply when using this board.
 # Use a default CM0+ image (XMC7xDUAL_CM0P_SLEEP). This can be swapped for a
 # different pre-built image or removed if custom built project.
-BSP_COMPONENTS:=XMC7xDUAL_CM0P_SLEEP
+# Note: BSP_DESIGN_MODUS added for backwards compatability
+BSP_COMPONENTS:=XMC7xDUAL_CM0P_SLEEP BSP_DESIGN_MODUS
 
 # Any additional defines to apply when using this board.
 BSP_DEFINES:=CY_USING_HAL

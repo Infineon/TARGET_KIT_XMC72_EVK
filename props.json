@@ -1,6 +1,6 @@
 {
     "core": {
-        "version": "1.0.0.29313"
+        "version": "1.0.0.29238"
     },
     "opt": {
         "props": {
@@ -32,12 +32,12 @@
                 "xmc7000"
             ],
             "dependencies": {
-                "cat1cm0p": "release-v1.0.0",
+                "cat1cm0p": "release-v1.0.0-Beta2",
                 "core-lib": "latest-v1.X",
-                "core-make": "release-v3.0.0",
-                "mtb-hal-cat1": "release-v2.2.0",
-                "mtb-pdl-cat1": "release-v3.0.0",
-                "recipe-make-cat1c": "release-v1.0.0"
+                "core-make": "release-v3.0.0-Beta2",
+                "mtb-hal-cat1": "release-v2.2.0-Beta2",
+                "mtb-pdl-cat1": "release-v3.0.0-Beta2",
+                "recipe-make-cat1c": "release-v1.0.0-Beta2"
             },
             "docs_dir": "docs",
             "flow_version": "2.0",

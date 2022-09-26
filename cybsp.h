@@ -36,6 +36,8 @@
 extern "C" {
 #endif
 
+#define CYBSP_WIFI_INTERFACE_TYPE        CYBSP_SDIO_INTERFACE
+
 /**
  * \addtogroup group_bsp_errors Error Codes
  * \{

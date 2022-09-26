@@ -124,6 +124,7 @@ BSP Configuration</h1>
 <p >The BSP has a few hooks that allow its behavior to be configured. Some of these items are enabled by default while others must be explicitly enabled. Items enabled by default are specified in the KIT_XMC72_EVK.mk file. The items that are enabled can be changed by creating a custom BSP or by editing the application makefile.</p>
 <p >Components:</p><ul>
 <li>Device specific category reference (e.g.: CAT1) - This component, enabled by default, pulls in any device specific code for this board.</li>
+<li>BSP_DESIGN_MODUS - This component, enabled by default, is provided for backwards compatibility with some middleware libraries. Both it and the corresponding component CUSTOM_DESIGN_MODUS are no longer used for controlling configurator generated code.</li>
 </ul>
 <p >Defines:</p><ul>
 <li>CYBSP_WIFI_CAPABLE - This define, disabled by default, causes the BSP to initialize the interface to an onboard wireless chip if it has one.</li>

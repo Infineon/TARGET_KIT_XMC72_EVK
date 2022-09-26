@@ -35,9 +35,9 @@ void Cy_DefaultUserHandler(void);
 
 #define DEFAULT_HANDLER_NAME                            Cy_DefaultUserHandler
 
-__attribute__( ( section(".noinit"))) cy_israddress Cy_SystemIrqUserTable[CPUSS_SYSTEM_INT_NR];
+static cy_israddress Cy_SystemIrqUserTable[CPUSS_SYSTEM_INT_NR];
 
-__attribute__( ( section(".noinit"))) cy_israddress * Cy_SysInt_SystemIrqUserTableRamPointer;
+cy_israddress * Cy_SysInt_SystemIrqUserTableRamPointer = Cy_SystemIrqUserTable;
 
 
 /*******************************************************************************
@@ -54,16 +54,16 @@ __attribute__( ( section(".noinit"))) cy_israddress * Cy_SysInt_SystemIrqUserTab
 #define CY_CLK_SYSTEM_FREQ_HZ_DEFAULT       (8000000UL)
 
 /** Holds the CLK_SLOW(Cortex-M0+) or CLK_FAST0(Cortex-M7_0) or CLK_FAST(Cortex-M7_1) system core clock */
-__attribute__( ( section(".noinit"))) uint32_t SystemCoreClock;
+uint32_t SystemCoreClock = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
 
 /** Holds the HFClk0 clock frequency. Updated by \ref SystemCoreClockUpdate(). */
-__attribute__( ( section(".noinit"))) uint32_t cy_Hfclk0FreqHz;
+uint32_t cy_Hfclk0FreqHz  = CY_CLK_HFCLK0_FREQ_HZ_DEFAULT;
 
 /** Holds the PeriClk clock frequency. Updated by \ref SystemCoreClockUpdate(). */
-__attribute__( ( section(".noinit"))) uint32_t cy_PeriClkFreqHz;
+uint32_t cy_PeriClkFreqHz = CY_CLK_PERICLK_FREQ_HZ_DEFAULT;
 
 /** Holds the AHB frequency. Updated by \ref SystemCoreClockUpdate(). */
-__attribute__( ( section(".noinit"))) uint32_t cy_AhbFreqHz;
+uint32_t cy_AhbFreqHz = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
 
 /*******************************************************************************
 * SystemCoreClockUpdate (void)
@@ -76,11 +76,13 @@ __attribute__( ( section(".noinit"))) uint32_t cy_AhbFreqHz;
 #define CY_DELAY_1M_THRESHOLD           (1000000u)
 #define CY_DELAY_1M_MINUS_1_THRESHOLD   (CY_DELAY_1M_THRESHOLD - 1u)
 
-__attribute__( ( section(".noinit"))) uint32_t cy_delayFreqHz;
+uint32_t cy_delayFreqHz   = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
 
-__attribute__( ( section(".noinit"))) uint32_t cy_delayFreqKhz;
+uint32_t cy_delayFreqKhz  = (CY_CLK_SYSTEM_FREQ_HZ_DEFAULT + CY_DELAY_1K_MINUS_1_THRESHOLD) /
+                            CY_DELAY_1K_THRESHOLD;
 
-__attribute__( ( section(".noinit"))) uint32_t cy_delayFreqMhz;
+uint32_t cy_delayFreqMhz  = (uint32_t)((CY_CLK_SYSTEM_FREQ_HZ_DEFAULT + CY_DELAY_1M_MINUS_1_THRESHOLD) /
+                            CY_DELAY_1M_THRESHOLD);
 
 
 /*******************************************************************************
@@ -136,8 +138,6 @@ void SystemIrqInit(void)
     {
         Cy_SystemIrqUserTable[i] = DEFAULT_HANDLER_NAME;
     }
-
-    Cy_SysInt_SystemIrqUserTableRamPointer = Cy_SystemIrqUserTable;
 }
 
 /*******************************************************************************
