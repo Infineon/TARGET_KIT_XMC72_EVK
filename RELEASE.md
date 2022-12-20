@@ -14,6 +14,8 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
+#### v1.1.0
+* Add macro `CYBSP_USER_BTN_DRIVE` indicating the drive mode that should be used for user buttons
 #### v1.0.0
 Note: This revision is only compatible with ModusToolbox Tools 3.0 and newer.
 * Initial production release
@@ -32,7 +34,7 @@ Minimum required ModusToolbox™ Software Environment: v3.0.0
 
 ### More information
 * [KIT_XMC72_EVK BSP API Reference Manual][api]
-* [KIT_XMC72_EVK Documentation](https://www.infineon.com/KIT_XMC72_EVK)
+* [KIT_XMC72_EVK Documentation](https://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC72_EVK)
 * [Cypress Semiconductor, an Infineon Technologies Company](http://www.cypress.com)
 * [Infineon GitHub](https://github.com/infineon)
 * [ModusToolbox™](https://www.cypress.com/products/modustoolbox-software-environment)

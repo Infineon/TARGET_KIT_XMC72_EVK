@@ -77,7 +77,7 @@ See the [BSP API Reference Manual][api] for the complete list of the provided in
 
 ## More information
 * [KIT_XMC72_EVK BSP API Reference Manual][api]
-* [KIT_XMC72_EVK Documentation](https://www.infineon.com/KIT_XMC72_EVK)
+* [KIT_XMC72_EVK Documentation](https://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC72_EVK)
 * [Cypress Semiconductor, an Infineon Technologies Company](http://www.cypress.com)
 * [Infineon GitHub](https://github.com/infineon)
 * [ModusToolbox™](https://www.cypress.com/products/modustoolbox-software-environment)
