@@ -13,7 +13,7 @@ To use code from the BSP, simply include a reference to `cybsp.h`.
 ### Kit Features:
 
 * XMC7200D-E272K8384 8MB Flash 272-pin BGA device
-* Programming interface (Arm® Standard JTAG, Cortex Debug + ETM with Arm® ETM Mictor)
+* Programming interface (Arm® Standard JTAG, Cortex® Debug + ETM with Arm® ETM Mictor)
 * Reset control with manual reset switch and voltage supervision
 * Gigabit Ethernet interface
 * CAN FD interface
@@ -77,7 +77,7 @@ See the [BSP API Reference Manual][api] for the complete list of the provided in
 
 ## More information
 * [KIT_XMC72_EVK BSP API Reference Manual][api]
-* [KIT_XMC72_EVK Documentation](https://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC72_EVK)
+* [KIT_XMC72_EVK Documentation](https://www.infineon.com/cms/en/product/evaluation-boards/kit_xmc72_evk/)
 * [Cypress Semiconductor, an Infineon Technologies Company](http://www.cypress.com)
 * [Infineon GitHub](https://github.com/infineon)
 * [ModusToolbox™](https://www.cypress.com/products/modustoolbox-software-environment)
