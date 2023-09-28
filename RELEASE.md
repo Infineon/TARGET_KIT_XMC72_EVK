@@ -14,6 +14,16 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
+#### v2.0.0
+* Fixed issue where CM0P prebuilt image would enable both CM7 cores on devices which contain
+  two CM7 cores, even for single core applications.
+* Updated default clock divider selections to better align with frequency limitations documented
+  in the datasheet.
+
+##### Known issues:
+Issue: Wifi companion radio connection may fail when the board is programmed using `make program`
+
+Workaround: Program the board using an IDE launch config.
 #### v1.2.0
 * Updated linker scripts and startup code to align with mtb-pdl-cat1 v3.4.0
 * Added functionality to enable BSP Assistant chip flow
@@ -30,7 +40,7 @@ This version of the KIT_XMC72_EVK BSP was validated for compatibility with the f
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
 | ModusToolbox™ Software Environment        | 3.1.0   |
-| GCC Compiler                              | 12.2.1  |
+| GCC Compiler                              | 11.3.1  |
 | IAR Compiler                              | 9.30.1  |
 | ARM Compiler                              | 6.16    |
 

@@ -50,16 +50,16 @@ Defines:
 
 | Clock    | Source    | Output Frequency |
 |----------|-----------|------------------|
-| FLL      | IMO       | 50.0 MHz         |
+| FLL      | IMO       | 100.0 MHz        |
 | PLL      | IMO       | 100.0 MHz        |
-| CLK_HF0  | CLK_PATH0 | 50 MHz           |
-| CLK_HF1  | CLK_PATH1 | 340 MHz          |
-| CLK_HF2  | CLK_PATH2 | 196 MHz          |
-| CLK_HF3  | CLK_PATH3 | 144 MHz          |
-| CLK_HF4  | CLK_PATH4 | 100 MHz          |
-| CLK_HF5  | CLK_PATH5 | 8 MHz            |
-| CLK_HF6  | CLK_PATH5 | 8 MHz            |
-| CLK_HF7  | CLK_PATH5 | 8 MHz            |
+| CLK_HF0  | CLK_PATH3 | 200 MHz          |
+| CLK_HF1  | CLK_PATH1 | 350 MHz          |
+| CLK_HF2  | CLK_PATH4 | 100 MHz          |
+| CLK_HF3  | CLK_PATH3 | 100 MHz          |
+| CLK_HF4  | CLK_PATH2 | 125 MHz          |
+| CLK_HF5  | CLK_PATH2 | 125 MHz          |
+| CLK_HF6  | CLK_PATH3 | 200 MHz          |
+| CLK_HF7  | CLK_PATH6 | 8 MHz            |
 
 ### Power Configuration
 
