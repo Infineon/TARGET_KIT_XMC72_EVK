@@ -49,8 +49,8 @@
 * warnings in your project, you can simply comment out or remove the relevant
 * code in the linker file.
 *
-* \note - There is a common linker script for both CM7_0 and CM7_1 core. 
-* By default it links for CM7_0 core. But if the application is built for CM7_1, then a linker option _CORE_cm7_1 is provided in build system. 
+* \note - There is a common linker script for both CM7_0 and CM7_1 core.
+* By default it links for CM7_0 core. But if the application is built for CM7_1, then a linker option _CORE_cm7_1 is provided in build system.
 * For example, below piece of code is implemented in the build system.
 * \code
 * ifeq ($(TOOLCHAIN),IAR)
@@ -81,20 +81,20 @@
 * \endcode
 * - 'xx_yy_cm7.ld', where 'xx_yy' is the device group:
 * \code
-* ram (rxw) : ORIGIN = _base_SRAM, LENGTH = _size_SRAM 
+* ram (rxw) : ORIGIN = _base_SRAM, LENGTH = _size_SRAM
 * flash_cm0p (rx) : ORIGIN = _base_CODE_FLASH_CM0P, LENGTH = _size_CODE_FLASH_CM0P
 * flash (rx) : ORIGIN = _base_CODE_FLASH, LENGTH = _size_CODE_FLASH
 * \endcode
 *
 * Change the value of the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR
-* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE 
+* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE
 * value (0x80000, the size of a flash image of the Cortex-M0+ application should be the
 * same value as the flash LENGTH in 'xx_yy_cm0plus.ld') in the 'xx_yy_cm7.ld' file,
 * where 'xx_yy' is the device group.
 *
-* - Do this by editing the the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value 
+* - Do this by editing the the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value
 * in the 'system_xx.h', where 'xx' is the device family:\n
-* \code 
+* \code
 * #define CY_CORTEX_M7_0_APPL_ADDR BASE_CODE_FLASH_CM7_0
 * #define CY_CORTEX_M7_1_APPL_ADDR BASE_CODE_FLASH_CM7_1
 * \endcode
@@ -151,14 +151,14 @@
 * \endcode
 *
 * Change the value of the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR
-* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE 
+* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE
 * value (0x80000, the size of a flash image of the Cortex-M0+ application should be the
 * same value as the flash LENGTH in 'xx_yy_cm0plus.sct') in the 'xx_yy_cm7.sct' file,
 * where 'xx_yy' is the device group.
 *
-* - Do this by editing the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value 
+* - Do this by editing the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value
 * in the 'system_xx.h', where 'xx' is the device family:\n
-* \code 
+* \code
 * #define CY_CORTEX_M7_0_APPL_ADDR BASE_CODE_FLASH_CM7_0
 * #define CY_CORTEX_M7_1_APPL_ADDR BASE_CODE_FLASH_CM7_1
 * \endcode
@@ -205,14 +205,14 @@
 * \endcode
 *
 * Change the value of the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR
-* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE 
+* macro to the ROM ORIGIN's value (0x10000000) + FLASH_CM0P_SIZE
 * value (0x80000, the size of a flash image of the Cortex-M0+ application should be the
 * same value as the flash LENGTH in 'xx_yy_cm0plus.icf') in the 'xx_yy_cm7.icf' file,
 * where 'xx_yy' is the device group.
 *
-* - Do this by editing the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value 
+* - Do this by editing the \ref CY_CORTEX_M7_0_APPL_ADDR or \ref CY_CORTEX_M7_1_APPL_ADDR value
 * in the 'system_xx.h', where 'xx' is the device family:\n
-* \code 
+* \code
 * #define CY_CORTEX_M7_0_APPL_ADDR BASE_CODE_FLASH_CM7_0
 * #define CY_CORTEX_M7_1_APPL_ADDR BASE_CODE_FLASH_CM7_1
 * \endcode
@@ -221,14 +221,14 @@
 * \subsection group_system_config_device_initialization_cm7 Device Initialization
 * After a power-on-reset (POR), the CM0+ starts boot-ROM directly from ROM and boot-ROM starts CM0+ startup.
 * The CM0+ startup starts CM0+ user application. The CM0+ user application enables CM7 cores and starts CM7 startup.
-* The startup code is the piece of code which is executed after every system reset. 
+* The startup code is the piece of code which is executed after every system reset.
 * It initializes the system components like, memory, FPU, interrupts, clock, etc. and calls application's main() function.
 * The startup code is always build as part of user application. There are two different startup codes for CM0+ and CM7 core.
 *
 * The CM0+ startup code implements the following functions to run the CM0+ application:
-* 
+*
 * 1. In the Reset Handler, it disables global interrupts
-* 3. Disables the SRAM ECC checking: CM0+ bus width is 32-bit, but SRAM is built with 64-bit based ECC on Facelift parts with CM7 core, 
+* 3. Disables the SRAM ECC checking: CM0+ bus width is 32-bit, but SRAM is built with 64-bit based ECC on Facelift parts with CM7 core,
 *     sets CPUSS->RAMx_CTL0.ECC_CHECK_DIS bits to avoid causing unintentional ECC faults during startup while SRAM ECC has not been initialized yet.
 * 4. Calls SystemInit() function
 *   - Initializes and enables the SRAM memory for ECC
@@ -241,10 +241,10 @@
 * 5. Executes main() application
 *
 * The CM7 startup code implement the following functions to run the CM7 user application:
-* 
+*
 * 1. In the Reset handler, it disables global interrupts
 * 2. Allows write access to Vector Table Offset Register and ITCM/DTCM configuration register
-* 3. Enables CM7 core ITCM and DTCM 
+* 3. Enables CM7 core ITCM and DTCM
 * 4. Enables the FPU if it is used
 * 5. Copies the vector table from ROM to RAM and updates the VTOR (Vector Table Offset Register)
 * 6. Enables the CM7 core instruction and data cache
@@ -267,6 +267,19 @@
 * 'xmc7200d_x8384_cm7.ld', 'xmc7100d_x4160_cm7.ld', 'xmc7200d_x8384_cm0plus.ld' and 'xmc7100d_x4160_cm0plus.ld'.
 * Change the stack size by modifying the following line:\n
 * \code STACK_SIZE = 0x1000; \endcode
+*
+* \note Correct operation of malloc and related functions depends on the working
+* implementation of the 'sbrk' function. Newlib-nano (default C runtime library
+* used by the GNU Arm Embedded toolchain) provides weak 'sbrk' implementation that
+* doesn't check for heap and stack collisions during excessive memory allocations.
+* To ensure the heap always remains within the range defined by __HeapBase and
+* __HeapLimit linker symbols, provide a strong override for the 'sbrk' function:
+* \snippet startup/snippet/main.c snippet_sbrk
+* For FreeRTOS-enabled multi-threaded applications, it is sufficient to include
+* clib-support library that provides newlib-compatible implementations of
+* 'sbrk', '__malloc_lock' and '__malloc_unlock':
+* <br>
+* https://github.com/Infineon/clib-support.
 *
 * \subsubsection group_system_config_heap_stack_config_mdk_cm7 ARM Compiler
 * <b>Editing source code files</b>\n
@@ -314,7 +327,7 @@
 *
 * \subsubsection group_system_config_device_vector_table_mdk_cm7 ARM Compiler
 * The linker script file is 'xx_yy_zz.sct', where 'xx_ yy' is the device group, and 'zz' is the target CPU;
-* for example 'xmc7200d_x8384_cm7.sct', 'xmc7100d_x4160_cm7.sct', 'xmc7200d_x8384_cm0plus.sct' and 
+* for example 'xmc7200d_x8384_cm7.sct', 'xmc7100d_x4160_cm7.sct', 'xmc7200d_x8384_cm0plus.sct' and
 * 'xmc7100d_x4160_cm0plus.sct'. The linker script specifies that the vector table
 * (RESET_RAM) shall be first in the RAM section.\n
 * RESET_RAM represents the vector table. It is defined in the startup
@@ -399,7 +412,7 @@ extern "C" {
 
 /**  Start address of the Cortex-M7_0 application */
 #ifndef CY_CORTEX_M7_0_APPL_ADDR
-    #define CY_CORTEX_M7_0_APPL_ADDR        BASE_CODE_FLASH_CM7_0 
+    #define CY_CORTEX_M7_0_APPL_ADDR        BASE_CODE_FLASH_CM7_0
 #endif
 
 /**  Start address of the Cortex-M7_1 application */
@@ -425,6 +438,16 @@ extern "C" {
 /** Error Selection */
 #define CORE_MAX                    (2U)
 
+/** Define start of the function placed to the ITCM area by the linker */
+#ifndef CY_SECTION_ITCM_BEGIN
+#define CY_SECTION_ITCM_BEGIN CY_SECTION(".cy_itcm")
+#endif
+
+/** Define end of the function placed to the ITCM area by the linker */
+#ifndef CY_SECTION_ITCM_END
+#define CY_SECTION_ITCM_END
+#endif
+
 extern uint32_t cy_delayFreqHz;
 extern uint32_t cy_delayFreqKhz;
 extern uint32_t  cy_delayFreqMhz;
@@ -434,12 +457,7 @@ extern uint32_t cy_Hfclk0FreqHz;
 extern uint32_t cy_PeriClkFreqHz;
 extern uint32_t cy_AhbFreqHz;
 
-#if defined(__ARMCC_VERSION)
-    extern void SystemInit(void) __attribute__((constructor));
-#else
-    extern void SystemInit(void);
-#endif /* (__ARMCC_VERSION) */
-
+extern void SystemInit(void);
 extern void SystemIrqInit(void);
 extern void SystemCoreClockUpdate(void);
 
@@ -462,7 +480,7 @@ extern void SystemCoreClockUpdate(void);
 *      1: CY_SYS_CM7_STATUS_RESET \n
 *      2: CY_SYS_CM7_STATUS_RETAINED \n
 *      3: CY_SYS_CM7_STATUS_ENABLED \n
-* 
+*
 ******************************************************************************/
 extern uint32_t Cy_SysGetCM7Status(uint8_t core);
 /*******************************************************************************

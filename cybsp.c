@@ -33,6 +33,9 @@
 #include "cyhal_hwmgr.h"
 #include "cyhal_syspm.h"
 #endif
+#if defined(COMPONENT_MW_CAT1CM0P)
+    #include "mtb_cat1cm0p.h"
+#endif
 
 #if defined(__cplusplus)
 extern "C" {
@@ -102,7 +105,17 @@ cy_rslt_t cybsp_init(void)
     cy_rslt_t result = CY_RSLT_SUCCESS;
     #endif // if defined(CY_USING_HAL)
 
-    init_cycfg_all();
+    // By default, the peripheral configuration will be done on the first core running user code.
+    // This is the CM0+ if it is available and not running a pre-built image, and the CM7 otherwise.
+    // This is done to ensure configuration is available for all cores that might need to use it.
+    // In the case of a dual core project, this can be changed below to perform initialization on
+    // the CM7 if necessary.
+    #if defined(CORE_NAME_CM0P_0) || !(__CM0P_PRESENT) || (defined(CORE_NAME_CM7_0) && \
+    defined(CY_USING_PREBUILT_CM0P_IMAGE))
+    cycfg_config_init();
+    #endif
+
+    cycfg_config_reservations();
 
     if (CY_RSLT_SUCCESS == result)
     {

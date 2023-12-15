@@ -28,6 +28,7 @@
 
 #include "cy_result.h"
 #include "cybsp_types.h"
+#include "cybsp_hw_config.h"
 #if defined(COMPONENT_WICED_BLE) || defined(COMPONENT_WICED_DUALMODE)
 #include "cybsp_bt_config.h"
 #endif
@@ -35,8 +36,6 @@
 #if defined(__cplusplus)
 extern "C" {
 #endif
-
-#define CYBSP_WIFI_INTERFACE_TYPE        CYBSP_SDIO_INTERFACE
 
 /**
  * \addtogroup group_bsp_errors Error Codes

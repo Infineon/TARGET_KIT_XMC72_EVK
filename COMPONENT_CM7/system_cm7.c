@@ -35,9 +35,9 @@ void Cy_DefaultUserHandler(void);
 
 #define DEFAULT_HANDLER_NAME                            Cy_DefaultUserHandler
 
-static cy_israddress Cy_SystemIrqUserTable[CPUSS_SYSTEM_INT_NR];
+CY_NOINIT cy_israddress Cy_SystemIrqUserTable[CPUSS_SYSTEM_INT_NR] ;
 
-cy_israddress * Cy_SysInt_SystemIrqUserTableRamPointer = Cy_SystemIrqUserTable;
+CY_NOINIT cy_israddress * Cy_SysInt_SystemIrqUserTableRamPointer ;
 
 
 /*******************************************************************************
@@ -54,16 +54,16 @@ cy_israddress * Cy_SysInt_SystemIrqUserTableRamPointer = Cy_SystemIrqUserTable;
 #define CY_CLK_SYSTEM_FREQ_HZ_DEFAULT       (8000000UL)
 
 /** Holds the CLK_SLOW(Cortex-M0+) or CLK_FAST0(Cortex-M7_0) or CLK_FAST(Cortex-M7_1) system core clock */
-uint32_t SystemCoreClock = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
+CY_NOINIT uint32_t SystemCoreClock ;
 
 /** Holds the HFClk0 clock frequency. Updated by \ref SystemCoreClockUpdate(). */
-uint32_t cy_Hfclk0FreqHz  = CY_CLK_HFCLK0_FREQ_HZ_DEFAULT;
+CY_NOINIT uint32_t cy_Hfclk0FreqHz ;
 
 /** Holds the PeriClk clock frequency. Updated by \ref SystemCoreClockUpdate(). */
-uint32_t cy_PeriClkFreqHz = CY_CLK_PERICLK_FREQ_HZ_DEFAULT;
+CY_NOINIT uint32_t cy_PeriClkFreqHz ;
 
 /** Holds the AHB frequency. Updated by \ref SystemCoreClockUpdate(). */
-uint32_t cy_AhbFreqHz = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
+CY_NOINIT uint32_t cy_AhbFreqHz ;
 
 /*******************************************************************************
 * SystemCoreClockUpdate (void)
@@ -76,13 +76,11 @@ uint32_t cy_AhbFreqHz = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
 #define CY_DELAY_1M_THRESHOLD           (1000000u)
 #define CY_DELAY_1M_MINUS_1_THRESHOLD   (CY_DELAY_1M_THRESHOLD - 1u)
 
-uint32_t cy_delayFreqHz   = CY_CLK_SYSTEM_FREQ_HZ_DEFAULT;
+CY_NOINIT uint32_t cy_delayFreqHz ;
 
-uint32_t cy_delayFreqKhz  = (CY_CLK_SYSTEM_FREQ_HZ_DEFAULT + CY_DELAY_1K_MINUS_1_THRESHOLD) /
-                            CY_DELAY_1K_THRESHOLD;
+CY_NOINIT uint32_t cy_delayFreqKhz ;
 
-uint32_t cy_delayFreqMhz  = (uint32_t)((CY_CLK_SYSTEM_FREQ_HZ_DEFAULT + CY_DELAY_1M_MINUS_1_THRESHOLD) /
-                            CY_DELAY_1M_THRESHOLD);
+CY_NOINIT uint32_t cy_delayFreqMhz ;
 
 
 /*******************************************************************************
@@ -138,6 +136,8 @@ void SystemIrqInit(void)
     {
         Cy_SystemIrqUserTable[i] = DEFAULT_HANDLER_NAME;
     }
+
+    Cy_SysInt_SystemIrqUserTableRamPointer = Cy_SystemIrqUserTable;
 }
 
 /*******************************************************************************
@@ -219,31 +219,29 @@ void Cy_DefaultUserHandler(void)
 * The system interrupt mapped to CPU interrupt will be fetched and executed
 *
 *******************************************************************************/
+CY_SECTION_ITCM_BEGIN
 void CM7_CpuIntr_Handler(uint8_t intrNum)
 {
     uint32_t system_int_idx;
     cy_israddress handler;
 
-    if(CY_IS_CM7_CORE_0 && (_FLD2VAL(CPUSS_CM7_0_INT_STATUS_SYSTEM_INT_VALID, CPUSS_CM7_0_INT_STATUS[intrNum])))
+#ifdef CORE_NAME_CM7_0
+    if((_FLD2VAL(CPUSS_CM7_0_INT_STATUS_SYSTEM_INT_VALID, CPUSS_CM7_0_INT_STATUS[intrNum])))
     {
         system_int_idx = _FLD2VAL(CPUSS_CM7_0_INT_STATUS_SYSTEM_INT_IDX, CPUSS_CM7_0_INT_STATUS[intrNum]);
         handler = Cy_SystemIrqUserTable[system_int_idx];
-        if(handler != NULL)
         handler(); // jump to system interrupt handler
     }
-    else if(CY_IS_CM7_CORE_1 && (_FLD2VAL(CPUSS_CM7_1_INT_STATUS_SYSTEM_INT_VALID, CPUSS_CM7_1_INT_STATUS[intrNum])))
+#endif
+#ifdef CORE_NAME_CM7_1
+    if((_FLD2VAL(CPUSS_CM7_1_INT_STATUS_SYSTEM_INT_VALID, CPUSS_CM7_1_INT_STATUS[intrNum])))
     {
         system_int_idx = _FLD2VAL(CPUSS_CM7_1_INT_STATUS_SYSTEM_INT_IDX, CPUSS_CM7_1_INT_STATUS[intrNum]);
         handler = Cy_SystemIrqUserTable[system_int_idx];
-        if(handler != NULL)
         handler(); // jump to system interrupt handler
     }
-    else
-    {
-        // Triggered by software or because of software cleared a peripheral interrupt flag but did not clear the pending flag at NVIC
-    }
+#endif
     NVIC_ClearPendingIRQ((IRQn_Type)intrNum);
 }
-
-
+CY_SECTION_ITCM_END
 
