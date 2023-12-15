@@ -16,18 +16,6 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
-#### v2.0.1
-* Updated the description in README file and added memory-analyzer configuration support for KIT_XMC72_EVK and KIT_XMC72_EVK_MUR_43439M2 BSPs.
-#### v2.0.0
-* Fixed issue where CM0P prebuilt image would enable both CM7 cores on devices which contain
-  two CM7 cores, even for single core applications.
-* Updated default clock divider selections to better align with frequency limitations documented
-  in the datasheet.
-
-##### Known issues:
-Issue: Wi-Fi companion radio connection may fail when the board is programmed using `make program`.
-
-Workaround: Program the board using an IDE launch config.
 #### v1.2.1
 * Updated the description in README file for KIT_XMC72_EVK and KIT_XMC72_EVK_MUR_43439M2 BSPs
 #### v1.2.0
