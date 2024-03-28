@@ -23,7 +23,6 @@
 *******************************************************************************/
 
 #include <stdbool.h>
-#include "system_cat1c.h"
 #include "cy_device.h"
 #include "cy_device_headers.h"
 #include "cy_syslib.h"

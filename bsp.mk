@@ -2,11 +2,11 @@
 # \file bsp.mk
 #
 # \brief
-# Define the CTVYII-B-H-8M-320-CPU target.
+# Define the KIT-XMC72-EVK target.
 #
 ################################################################################
 # \copyright
-# Copyright 2021-2022 Cypress Semiconductor Corporation (an Infineon company) or
+# Copyright 2021-2024 Cypress Semiconductor Corporation (an Infineon company) or
 # an affiliate of Cypress Semiconductor Corporation
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -67,7 +67,7 @@ MPN_LIST:=XMC7200D-E272K8384
 DEVICE:=XMC7200D-E272K8384
 DEVICE_COMPONENTS:=CAT1 CAT1C CAT1C8M
 DEVICE_LIST:=XMC7200D-E272K8384
-DEVICE_TOOL_IDS:=bsp-assistant device-configurator dfuh-tool library-manager project-creator qspi-configurator smartio-configurator
+DEVICE_TOOL_IDS:=bsp-assistant device-configurator dfuh-tool library-manager memory-analyzer project-creator qspi-configurator smartio-configurator
 DEVICE_XMC7200D-E272K8384_CORES:=CORE_NAME_CM0P_0 CORE_NAME_CM7_0 CORE_NAME_CM7_1
 DEVICE_XMC7200D-E272K8384_DIE:=TVIIBH8M
 DEVICE_XMC7200D-E272K8384_FLASH_KB:=8384

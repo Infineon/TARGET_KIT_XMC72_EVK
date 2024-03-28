@@ -1,8 +1,6 @@
 #if !defined(LAYOUT_CAT1C_H)
 #define LAYOUT_CAT1C_H
 
-#include "cy_device_headers.h"
-
 #define STACK_SIZE                      0x1000
 #define RAMVECTORS_ALIGNMENT            128
 

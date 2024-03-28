@@ -352,11 +352,11 @@
                 <Block location="srss[0].clock[0].eco[0]">
                     <Personality template="eco" version="3.0">
                         <Param id="ecoFrequency" value="16.0000"/>
-                        <Param id="accuracyPpm" value="0"/>
+                        <Param id="accuracyPpm" value="20"/>
                         <Param id="driveLevel" value="100"/>
-                        <Param id="esr" value="50"/>
-                        <Param id="c0" value="0"/>
-                        <Param id="cLoad" value="18"/>
+                        <Param id="esr" value="150"/>
+                        <Param id="c0" value="7"/>
+                        <Param id="cLoad" value="10"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].fastclk[0]">
@@ -424,7 +424,7 @@
                 </Block>
                 <Block location="srss[0].clock[0].hfclk[7]">
                     <Personality template="hfclk" version="3.0">
-                        <Param id="sourceClockNumber" value="6"/>
+                        <Param id="sourceClockNumber" value="5"/>
                         <Param id="divider" value="1"/>
                     </Personality>
                 </Block>
@@ -445,7 +445,7 @@
                 </Block>
                 <Block location="srss[0].clock[0].lfclk[0]">
                     <Personality template="lfclk" version="3.0">
-                        <Param id="sourceClock" value="ilo0"/>
+                        <Param id="sourceClock" value="wco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].memclk[0]">
@@ -455,32 +455,32 @@
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[0]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[1]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[2]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[3]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[4]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[5]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="ilo0"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[6]">

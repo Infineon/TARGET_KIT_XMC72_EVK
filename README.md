@@ -2,7 +2,9 @@
 
 ## Overview
 
-The KIT_XMC72_EVK, a 272-pin evaluation board is based on the XMC7000 family of devices. XMC7000 MCU is designed for industrial applications. The evaluation board carries a XMC7000D microcontroller, a M.2 interface connector for interfacing radio modules based on AIROC™ Wi-Fi and Bluetooth® combos (currently not supported), SMIF dual header compatible with Digilent Pmod for interfacing HYPERBUS™ memories (currently not supported), and headers compatible with Arduino for interfacing Arduino shields. In addition, the board features an on-board programmer/debugger (KitProg3), a 512-Mbit QSPI NOR flash, CAN FD transceiver, Gigabit Ethernet PHY transceiver with RJ45 connector interface, a micro-B connector for USB device interface, three user LEDs, one potentiometer, and two push buttons. The board supports operating voltages from 3.3 V to 5.0 V for XMC7000D device.
+The KIT_XMC72_EVK, a 272-pin evaluation board is based on the XMC7000 family of devices. XMC7000 MCU is designed for industrial applications. The evaluation board carries a XMC7000D microcontroller, a M.2 interface connector for interfacing radio modules based on AIROC™ Wi-Fi and Bluetooth® combos, SMIF dual header compatible with Digilent Pmod for interfacing HYPERBUS™ memories (currently not supported), and headers compatible with Arduino for interfacing Arduino shields. In addition, the board features an on-board programmer/debugger (KitProg3), a 512-Mbit QSPI NOR flash, CAN FD transceiver, Gigabit Ethernet PHY transceiver with RJ45 connector interface, a micro-B connector for USB device interface, three user LEDs, one potentiometer, and two push buttons. The board supports operating voltages from 3.3 V to 5.0 V for XMC7000D device.     
+**Note:**
+This BSP does not support Wi-Fi/Bluetooth® connectivity examples. To run Wi-Fi/Bluetooth® connectivity examples on this kit, choose a BSP with the appropriate connectivity M.2 module.
 
 
 
@@ -17,7 +19,7 @@ To use code from the BSP, simply include a reference to `cybsp.h`.
 * Reset control with manual reset switch and voltage supervision
 * Gigabit Ethernet interface
 * CAN FD interface
-* M.2 interface connector to connect radio modules based on AIROC™ Wi-Fi & Bluetooth® combos (currently not supported)
+* M.2 interface connector to connect radio modules based on AIROC™ Wi-Fi & Bluetooth® combos 
 * 512-Mbit external Quad SPI NOR Flash that provides a fast, expandable memory for data and code
 * KitProg3 on-board SWD programmer/debugger, USB-UART and USB-I2C bridge functionality
 * A micro-B connector for USB device interface
@@ -50,8 +52,8 @@ Defines:
 
 | Clock    | Source    | Output Frequency |
 |----------|-----------|------------------|
-| FLL      | IMO       | 100.0 MHz        |
-| PLL      | IMO       | 100.0 MHz        |
+| FLL      | ECO       | 100.0 MHz        |
+| PLL      | ECO       | 100.0 MHz        |
 | CLK_HF0  | CLK_PATH3 | 200 MHz          |
 | CLK_HF1  | CLK_PATH1 | 350 MHz          |
 | CLK_HF2  | CLK_PATH4 | 100 MHz          |
@@ -59,7 +61,7 @@ Defines:
 | CLK_HF4  | CLK_PATH2 | 125 MHz          |
 | CLK_HF5  | CLK_PATH2 | 125 MHz          |
 | CLK_HF6  | CLK_PATH3 | 200 MHz          |
-| CLK_HF7  | CLK_PATH6 | 8 MHz            |
+| CLK_HF7  | CLK_PATH5 | 0 MHz            |
 
 ### Power Configuration
 
@@ -86,4 +88,4 @@ See the [BSP API Reference Manual][api] for the complete list of the provided in
 [settings]: https://infineon.github.io/TARGET_KIT_XMC72_EVK/html/md_bsp_settings.html
 
 ---
-© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2022.
+© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2024.
