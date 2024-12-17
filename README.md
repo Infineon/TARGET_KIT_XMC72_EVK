@@ -6,6 +6,9 @@ The KIT_XMC72_EVK, a 272-pin evaluation board is based on the XMC7000 family of 
 **Note:**
 This BSP does not support Wi-Fi/Bluetooth® connectivity examples. To run Wi-Fi/Bluetooth® connectivity examples on this kit, choose a BSP with the appropriate connectivity M.2 module.
 
+Certain boards having serial number starting with “2339HTX01“ are loaded with serial flash device S25HL512T instead of S25FL512S.  However, this BSP provides QSPI configurator settings for S25FL512S by default. Please check the serial flash device on your board and change the Memory Part Number  in QSPI configurator accordingly. For more details, refer to the
+[kit release notes](https://www.infineon.com/dgdl/Infineon-KIT_XMC72_EVK-XMC7200-evaluation-kit-release-notes-UserManual-v04_00-EN.pdf?fileId=8ac78c8c8412f8d301842e69fcde7b8a)
+
 
 
 To use code from the BSP, simply include a reference to `cybsp.h`.

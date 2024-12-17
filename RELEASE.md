@@ -3,6 +3,9 @@ The KIT_XMC72_EVK, a 272-pin evaluation board is based on the XMC7000 family of 
 **Note:**
 This BSP does not support Wi-Fi/Bluetooth® connectivity examples. To run Wi-Fi/Bluetooth® connectivity examples on this kit, choose a BSP with the appropriate connectivity M.2 module.
 
+Certain boards having serial number starting with “2339HTX01“ are loaded with serial flash device S25HL512T instead of S25FL512S.  However, this BSP provides QSPI configurator settings for S25FL512S by default. Please check the serial flash device on your board and change the Memory Part Number  in QSPI configurator accordingly. For more details, refer to the
+[kit release notes](https://www.infineon.com/dgdl/Infineon-KIT_XMC72_EVK-XMC7200-evaluation-kit-release-notes-UserManual-v04_00-EN.pdf?fileId=8ac78c8c8412f8d301842e69fcde7b8a)
+
 NOTE: BSPs are versioned by family. This means that version 1.2.0 of any BSP in a family (eg: XMC™ ) will have the same software maturity level. However, not all updates are necessarily applicable for each BSP in the family so not all version numbers will exist for each board. Additionally, new BSPs may not start at version 1.0.0. In the event of adding a common feature across all BSPs, the libraries are assigned the same version number. For example if BSP_A is at v1.3.0 and BSP_B is at v1.2.0, the event will trigger a version update to v1.4.0 for both BSP_A and BSP_B. This allows the common feature to be tracked in a consistent way.
 
 ### What's Included?
@@ -16,6 +19,11 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
+#### v2.3.0
+* Updated linker scripts and startup code to align with mtb-pdl-cat1 v3.14.0
+* Added bt-fw-mur-cyw43439 as a dependency for KIT_XMC72_EVK_MUR_43439M2
+#### v2.2.0
+* Added the BSP for KIT_T2G_C-2D-6M_LITE
 #### v2.1.0
 * Updated the KIT_XMC72_EVK, KIT_XMC72_EVK_MUR_43439M2, KIT_XMC71_EVK_LITE_V1 and KIT_XMC71_EVK_LITE_V2 BSPs to use ECO as main clock source
 #### v2.0.2
@@ -49,10 +57,10 @@ This version of the KIT_XMC72_EVK BSP was validated for compatibility with the f
 
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
-| ModusToolbox™ Software Environment        | 3.1.0   |
-| GCC Compiler                              | 12.2.1  |
-| IAR Compiler                              | 9.40.2  |
-| ARM Compiler                              | 6.16    |
+| ModusToolbox™ Software Environment        | 3.2.0   |
+| GCC Compiler                              | 11.3.1  |
+| IAR Compiler                              | 9.50.2  |
+| ARM Compiler                              | 6.22    |
 
 Minimum required ModusToolbox™ Software Environment: v3.0.0
 
