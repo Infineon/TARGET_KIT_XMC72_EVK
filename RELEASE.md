@@ -19,6 +19,8 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
+#### v2.3.1
+* Updated the capabilities in props.json for XMC7000 BSPs
 #### v2.3.0
 * Updated linker scripts and startup code to align with mtb-pdl-cat1 v3.14.0
 * Added bt-fw-mur-cyw43439 as a dependency for KIT_XMC72_EVK_MUR_43439M2
@@ -74,4 +76,4 @@ Minimum required ModusToolbox™ Software Environment: v3.0.0
 [api]: https://infineon.github.io/TARGET_KIT_XMC72_EVK/html/modules.html
 
 ---
-© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2024.
+© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2025.

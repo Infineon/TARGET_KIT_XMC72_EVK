@@ -368,7 +368,7 @@ int __low_level_init(void)
 
 #if !defined(CY_DEVICE_TVIIC2D6M)
 #ifdef ENABLE_CM7_DATA_CACHE
-void config_noncaheable_region(void)
+static void config_noncacheable_region(void)
 {
 
     ARM_MPU_Disable();
@@ -391,7 +391,7 @@ void Reset_Handler(void)
     __disable_irq();
 #if !defined(CY_DEVICE_TVIIC2D6M)
 #ifdef ENABLE_CM7_DATA_CACHE
-    config_noncaheable_region();
+    config_noncacheable_region();
 #endif /* ENABLE_CM7_DATA_CACHE */
 #endif
 
