@@ -6,9 +6,6 @@ The KIT_XMC72_EVK, a 272-pin evaluation board is based on the XMC7000 family of 
 **Note:**
 This BSP does not support Wi-Fi/Bluetooth® connectivity examples. To run Wi-Fi/Bluetooth® connectivity examples on this kit, choose a BSP with the appropriate connectivity M.2 module.
 
-Certain boards having serial number starting with “2339HTX01“ are loaded with serial flash device S25HL512T instead of S25FL512S.  However, this BSP provides QSPI configurator settings for S25FL512S by default. Please check the serial flash device on your board and change the Memory Part Number  in QSPI configurator accordingly. For more details, refer to the
-[kit release notes](https://www.infineon.com/dgdl/Infineon-KIT_XMC72_EVK-XMC7200-evaluation-kit-release-notes-UserManual-v04_00-EN.pdf?fileId=8ac78c8c8412f8d301842e69fcde7b8a)
-
 
 
 To use code from the BSP, simply include a reference to `cybsp.h`.
@@ -41,14 +38,12 @@ To use code from the BSP, simply include a reference to `cybsp.h`.
 
 ## BSP Configuration
 
-The BSP has a few hooks that allow its behavior to be configured. Some of these items are enabled by default while others must be explicitly enabled. Items enabled by default are specified in the bsp.mk file. The items that are enabled can be changed by creating a custom BSP or by editing the application makefile.
+The BSP has a few hooks that allow its behavior to be configured. Some of these items are enabled by default while others must be explicitly enabled. Items enabled by default are specified in the KIT_XMC72_EVK.mk file. The items that are enabled can be changed by creating a custom BSP or by editing the application makefile.
 
 Components:
-* Device specific category reference (e.g.: CAT1) - This component, enabled by default, pulls in any device specific code for this board.
 
 Defines:
 * CYBSP_WIFI_CAPABLE - This define, disabled by default, causes the BSP to initialize the interface to an onboard wireless chip if it has one.
-* CY_USING_HAL - This define, enabled by default, specifies that the HAL is intended to be used by the application. This will cause the BSP to include the applicable header file and to initialize the system level drivers.
 * CYBSP_CUSTOM_SYSCLK_PM_CALLBACK - This define, disabled by default, causes the BSP to skip registering its default SysClk Power Management callback, if any, and instead to invoke the application-defined function `cybsp_register_custom_sysclk_pm_callback` to register an application-specific callback.
 
 ### Clock Configuration
@@ -68,7 +63,7 @@ Defines:
 
 ### Power Configuration
 
-* System Idle Power Mode: Deep Sleep
+* System Idle Power Mode: CPU Sleep 
 * VDDA Voltage: 3300 mV
 * VDDD Voltage: 3300 mV
 
@@ -91,4 +86,4 @@ See the [BSP API Reference Manual][api] for the complete list of the provided in
 [settings]: https://infineon.github.io/TARGET_KIT_XMC72_EVK/html/md_bsp_settings.html
 
 ---
-© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2025.
+© Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2024.
