@@ -68,7 +68,7 @@ Defines:
 
 ### Power Configuration
 
-* System Idle Power Mode: Deep Sleep
+* System Idle Power Mode: CPU Sleep 
 * VDDA Voltage: 3300 mV
 * VDDD Voltage: 3300 mV
 
