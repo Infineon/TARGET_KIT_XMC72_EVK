@@ -19,14 +19,9 @@ The KIT_XMC72_EVK library includes the following:
 * API documentation
 
 ### What Changed?
-#### v3.0.2
-* Updated KIT_XMC72_EVK documentation
+#### v2.3.3
+* Updated the startup code to fix ARM compiler error
 * Update BSP template to v1.7.4
-#### v3.0.1
-* Add additional capabilities and summary for KIT_T2G_C-2D-6M_LITE
-* Updated the startup code to align with mtb-pdl-cat1 v3.17.0 for KIT_XMC72_EVK
-#### v3.0.0
-* Updated KIT_XMC72_EVK to no longer enable HAL by default
 #### v2.3.2
 * Updated the startup code to align with mtb-pdl-cat1 v3.17.0 for XMC7000 BSPs
 #### v2.3.1
