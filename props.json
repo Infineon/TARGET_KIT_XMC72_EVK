@@ -1,6 +1,6 @@
 {
     "core": {
-        "version": "3.0.1.47508"
+        "version": "3.0.2.47689"
     },
     "opt": {
         "props": {
@@ -51,7 +51,7 @@
             "min_tools": "3.3.0",
             "template": {
                 "id": "mtb-template-cat1",
-                "version": "release-v1.7.2"
+                "version": "release-v1.7.4"
             }
         }
     }
